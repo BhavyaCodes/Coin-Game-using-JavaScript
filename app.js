@@ -1,3 +1,4 @@
+//function to check if player and coin images are touching
 function isTouching(a, b) {
 	const aRect = a.getBoundingClientRect();
 	const bRect = b.getBoundingClientRect();
@@ -42,16 +43,17 @@ window.addEventListener("keyup",function(e){
 	if(isTouching(avatar,coin)){
 		moveCoin();
 		score++;
-		//h1.innerText = `${sco}re฿`;
-		h1.innerText = `Score: ${score}฿`;
+		h1.innerText = `Score: ฿${score}`;
 	}
 })
 
+//converts '100px' string to num - > 100
 const extractPos = (pos)=>{
 	if (!pos) return 100;
 	return parseInt(pos.slice(0,-2));
 }
 
+//change coin top and left randomly, values based on window size
 const moveCoin = () =>{
 	const x = (Math.random()*(window.innerWidth-100));
 	const y = (Math.random()*(window.innerHeight-100));
@@ -60,5 +62,6 @@ const moveCoin = () =>{
 
 }
 
+//initial coin location and score
 moveCoin();
 let score = 0;
